@@ -45,13 +45,13 @@ const DetailPage = ( { navigation, route }) => {
 
                 <View style={styles.profileSection}>
                     <Image source={require('./image/profile.jpg')} style={styles.profilePic}/>
-                    <View style={{ marginLeft: 20, marginTop: 10, }}>
-                        <Text style={{ fontSize: 30, fontWeight: '500' }}>Rofi</Text>
-                        <Text style={{ fontSize: 20, fontWeight: '300'}}>Mentor Lead</Text>
+                    <View style={{ marginLeft: 20, marginTop: 20, }}>
+                        <Text style={{ fontSize: 25, fontWeight: '500' }}>Rofi</Text>
+                        <Text style={{ fontSize: 15, fontWeight: '300'}}>Mentor Lead</Text>
                     </View>
                     <View style={{ flexDirection: 'row', gap: 20, marginTop: 30, }}>
-                        <FontAwesome name="phone-square" size={40} color="#0A8ED980" style={{ marginLeft: 40, }} />
-                        <Ionicons name="ios-chatbubble-ellipses" size={40} color="#0A8ED980" />
+                        <FontAwesome name="phone-square" size={40} color="#0079ff" style={{ marginLeft: 40, }} />
+                        <Ionicons name="ios-chatbubble-ellipses" size={40} color="#0079ff" />
                     </View>
                 </View>
 
@@ -72,7 +72,7 @@ const DetailPage = ( { navigation, route }) => {
                         <Text style={styles.price}>Rp. {harga} / paket</Text>
                     </View>
                     <View>
-                        <LinearGradient style={styles.ambilBtn} colors={['#A0DAFB', '#0A8ED9']}>
+                        <LinearGradient style={styles.ambilBtn} colors={['#7297d6', '#0079ff']}>
                             <TouchableOpacity onPress={() => navigation.navigate('Checkout page', {
                                 namaCourse,
                                 harga

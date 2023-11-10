@@ -14,7 +14,7 @@ const Homepage = ({navigation}) => {
             <TouchableOpacity onPress={onPress} style={styles.card}>
                 <Image source={img} style={{ borderRadius: 20 }} />
                 <View style={styles.cardBody}>
-                    <Text style={styles.titleCoursePopuler}>{namaCourse}</Text>
+                    <Text style={styles.titleCoursePopuler}>{namaCourse.length > 20 ? namaCourse.substring(0,26) + "..." : namaCourse}</Text>
                     <Text style={styles.captionCoursePopuler}>{captionCourse}</Text>
                 </View>
             </TouchableOpacity>
@@ -39,7 +39,7 @@ const Homepage = ({navigation}) => {
                         <TextInput placeholder="Cari course" style={{ fontSize: 20, fontWeight: "300" }} />
                     </View>
                     <LinearGradient
-                        colors={['#A0DAFB', '#0A8ED9']}
+                        colors={['#A0DAFB', '#0079ff']}
                         style={{ borderRadius: 20 }}
                     >
                         <View style={styles.filterContainer}>
@@ -53,18 +53,33 @@ const Homepage = ({navigation}) => {
                 >
                     <View style={styles.carouselCategory}>
                         <TouchableOpacity>
-                            <LinearGradient colors={['#A0DAFB', '#0A8ED9']} style={{ borderRadius: 16 }}>
+                            <LinearGradient colors={['#005b96', '#0079ff']} style={{ borderRadius: 16 }}>
                                 <Text style={styles.categoryType}>React</Text>
                             </LinearGradient>
                         </TouchableOpacity>
                         <TouchableOpacity>
-                            <LinearGradient colors={['#A0DAFB', '#F7F7F7']} style={{ borderRadius: 16 }}>
+                            <LinearGradient colors={['#011f4b', '#A0DAFB']} style={{ borderRadius: 16 }}>
                                 <Text style={styles.categoryType}>NextJS</Text>
                             </LinearGradient>
                         </TouchableOpacity>
                         <TouchableOpacity>
-                            <LinearGradient colors={['#A0DAFB', '#F7F7F7']} style={{ borderRadius: 16 }}>
+                            <LinearGradient colors={['#011f4b', '#A0DAFB']} style={{ borderRadius: 16 }}>
                                 <Text style={styles.categoryType}>Javascript</Text>
+                            </LinearGradient>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <LinearGradient colors={['#011f4b', '#A0DAFB']} style={{ borderRadius: 16 }}>
+                                <Text style={styles.categoryType}>Flutter</Text>
+                            </LinearGradient>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <LinearGradient colors={['#011f4b', '#A0DAFB']} style={{ borderRadius: 16 }}>
+                                <Text style={styles.categoryType}>Vue Js</Text>
+                            </LinearGradient>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <LinearGradient colors={['#011f4b', '#A0DAFB']} style={{ borderRadius: 16 }}>
+                                <Text style={styles.categoryType}>Bun</Text>
                             </LinearGradient>
                         </TouchableOpacity>
                     </View>
@@ -104,7 +119,7 @@ const Homepage = ({navigation}) => {
                     <Image style={{ borderRadius: 10, }} source={require('./image/rekomendasi1.png')} />
                     <View style={{ marginLeft: 20, }}>
                         <Text style={styles.titleCourseRecomend}>React advance 20 hari</Text>
-                        <Text style={styles.price}>Rp. 200.000 / paket</Text>
+                        <Text style={styles.price}>Free</Text>
                         <View style={styles.miniFeat}>
                             <Entypo name="video-camera" size={20} color="#858585" /><Text>20 Video</Text>
                             <MaterialIcons name="add-task" size={20} color="black" /><Text>20 Quizz</Text>

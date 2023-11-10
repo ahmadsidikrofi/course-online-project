@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold', 
         color: '#fff', 
         fontSize: 17, 
-        backgroundColor: '#cb1823', 
+        backgroundColor: '#0079ff', 
         borderRadius: 15,
         marginBottom: 15,
     },
@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         height: 50,
         borderColor: '#333',
-        borderWidth: 1,
-        borderStyle: "dashed",
     },
     inputText: {
         fontSize: 20,
@@ -67,7 +65,8 @@ const styles = StyleSheet.create({
     totPrice: {
         fontWeight: 'bold',
         fontSize: 27,
-        marginVertical: 5
+        marginVertical: 5,
+        color: '#0079ff'
     },
     btn: {
         padding: 25,

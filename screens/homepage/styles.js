@@ -55,6 +55,8 @@ const styles = StyleSheet.create({
     },
     populerTitle: {
         fontSize: 25,
+        color: '#005b96',
+        fontWeight: '500'
     },
     seeMore: {
         color: '#858585',
@@ -101,6 +103,8 @@ const styles = StyleSheet.create({
     },
     recomendationTitle: {
         fontSize: 25,
+        color: '#005b96',
+        fontWeight: '500'
     },
     recomendationCourseSection: {
         flexDirection: 'row',
