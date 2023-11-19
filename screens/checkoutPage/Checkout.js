@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 import styles from "./style";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { LinearGradient } from "expo-linear-gradient";
@@ -9,6 +9,7 @@ const Checkout = ({route, navigation}) => {
     const [jmlPaket, setJmlPaket] = useState('')
     const [voucher, setVoucher] = useState('')
     const [totalBayar, setTotalBayar] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     const handlePayCourse = () => {
         if (voucher === "PROFISUPERMURAH") {
@@ -22,11 +23,15 @@ const Checkout = ({route, navigation}) => {
         }
     }
     const handleCheckout = () => {
-        if (totalBayar === 0) {
+        if (totalBayar === 0 || totalBayar === "") {
             alert('Total yang dibayarkan tidak boleh 0')
         } else {
-            alert('Kamu telah membayar sebesar ' + totalBayar )
-            navigation.navigate('Homepage')
+            setIsLoading(true)
+            setTimeout(() => {
+                setIsLoading(false)
+                alert('Kamu telah membayar sebesar ' + totalBayar )
+                navigation.navigate('Homepage')
+            }, 4000)
         }
     }
 
@@ -73,7 +78,9 @@ const Checkout = ({route, navigation}) => {
                         </TouchableOpacity>
                         <TouchableOpacity onPress={handleCheckout} >
                             <LinearGradient style={styles.btn} colors={['#80B3FF', '#0174BE']}>
-                                <Text style={styles.btnText}>Checkout</Text>
+                                {isLoading ? 
+                                    <ActivityIndicator color="#bb5533" /> :  <Text style={styles.btnText}>Checkout</Text>
+                                }
                             </LinearGradient>
                         </TouchableOpacity>
                     </View>
