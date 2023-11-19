@@ -6,9 +6,9 @@ import { useState } from "react";
 
 const Checkout = ({route, navigation}) => {
     const {namaCourse, harga} = route.params
-    const [jmlPaket, setJmlPaket] = useState('');
-    const [voucher, setVoucher] = useState('');
-    const [totalBayar, setTotalBayar] = useState(0)
+    const [jmlPaket, setJmlPaket] = useState('')
+    const [voucher, setVoucher] = useState('')
+    const [totalBayar, setTotalBayar] = useState('')
 
     const handlePayCourse = () => {
         if (voucher === "PROFISUPERMURAH") {
