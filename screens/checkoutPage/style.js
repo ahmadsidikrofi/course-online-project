@@ -78,6 +78,12 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#fff',
         textAlign: 'center'
+    },
+    loadingText: {
+        fontWeight: 'bold',
+        fontSize: 9,
+        color: '#fff',
+        textAlign: 'center'
     }
 });
 

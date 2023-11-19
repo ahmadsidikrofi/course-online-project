@@ -79,7 +79,11 @@ const Checkout = ({route, navigation}) => {
                         <TouchableOpacity onPress={handleCheckout} >
                             <LinearGradient style={styles.btn} colors={['#80B3FF', '#0174BE']}>
                                 {isLoading ? 
-                                    <ActivityIndicator color="#bb5533" /> :  <Text style={styles.btnText}>Checkout</Text>
+                                    <View>
+                                        <ActivityIndicator color="#fff" /> 
+                                        <Text style={styles.loadingText}>Loading...</Text>
+                                    </View>
+                                    :  <Text style={styles.btnText}>Checkout</Text>
                                 }
                             </LinearGradient>
                         </TouchableOpacity>
