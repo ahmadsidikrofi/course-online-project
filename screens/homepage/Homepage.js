@@ -5,14 +5,30 @@ import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from "expo-linear-gradient";
 import CourseDb from "../data/CourseDb";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FlatList } from "react-native";
+import axios from "axios";
 
 const Homepage = ({navigation}) => {
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        axios.get('https://7aa9-2404-8000-1027-1608-3d68-16d3-9d26-8c7c.ngrok-free.app/courses')
+        .then((response) => {
+            if (response.status === 200) {
+                console.log(response.data)
+                setCourses(response.data)
+            }
+        })
+        .catch((err) => console.log(err))
+    }, [])
     const PopulerCard = ({ namaCourse, captionCourse, img, id, onPress }) => {
         return (
             <TouchableOpacity onPress={onPress} style={styles.card}>
-                <Image source={img} style={{ borderRadius: 20 }} />
+                <Image source={{ uri: img }} style={{ borderRadius: 20, width: 250, height: 250 }} 
+                    onError={(error) => console.log('Image loading error:', error)}
+                    onLoad={() => console.log('Image loaded successfully')}
+                />
                 <View style={styles.cardBody}>
                     <Text style={styles.titleCoursePopuler}>{namaCourse.length > 20 ? namaCourse.substring(0,26) + "..." : namaCourse}</Text>
                     <Text style={styles.captionCoursePopuler}>{captionCourse}</Text>
@@ -93,22 +109,22 @@ const Homepage = ({navigation}) => {
                     <FlatList
                         horizontal
                         showsHorizontalScrollIndicator={false}
-                        data={CourseDb}
+                        data={courses}
                         renderItem={({ item }) => (
                             <PopulerCard
-                                namaCourse={item.namaCourse}
-                                captionCourse={item.captionCourse}
-                                img={item.img}
-                                id={item.id}
+                                namaCourse={item.Course}
+                                captionCourse={item.Deskripsi}
+                                img={item.Gambar}
+                                id={item.ID}
                                 onPress={() => navigation.navigate('Detail Page', {
-                                    namaCourse: item.namaCourse,
-                                    captionCourse: item.captionCourse,
-                                    harga: item.harga,
-                                    img: item.img,
+                                    namaCourse: item.Course,
+                                    captionCourse: item.Deskripsi,
+                                    harga: item.Harga,
+                                    img: item.Gambar,
                                 })}
                             />
                         )}
-                        keyExtractor={(item) => item.id.toString()}
+                        keyExtractor={(item) => item.ID}
                     />
                 </View>
                 <View style={styles.recomendationCourseHeaderSection}>

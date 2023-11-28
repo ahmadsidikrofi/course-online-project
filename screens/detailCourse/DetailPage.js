@@ -14,7 +14,7 @@ const DetailPage = ( { navigation, route }) => {
     return ( 
         <ScrollView>
             <View style={styles.container} >
-                <ImageBackground source={img} 
+                <ImageBackground source={{ uri: img }} 
                     resizeMode="cover" 
                     style={styles.bgImage}
                     imageStyle={styles.bgImage}
