@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     },
     searchCourseInput: {
         padding: 20,
-        backgroundColor: '#f7f7f7',
+        backgroundColor: '#0079ff',
         borderRadius: 20,
         flexDirection: 'row',
         gap: 15,
@@ -37,14 +37,15 @@ const styles = StyleSheet.create({
     },
     carouselCategory: {
         flexDirection: 'row',
-        gap: 10
+        gap: 10,
+        alignItems: 'center'
     },
     categoryType: {
         color: '#fff',
         textAlign: 'center',
         fontWeight: 'bold',
         padding: 15,
-        width: 100
+        width: 150,
     },
 
     // Populer Course
@@ -110,16 +111,19 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         // marginLeft: 20,
         marginBottom: 20,
+        backgroundColor: '#fff',
+        borderRadius: 30,
+        padding: 15,
     },
     titleCourseRecomend: {
         color: '#000',
         fontWeight: 'bold',
         fontSize: 15,
-        marginTop: 5
+        marginTop: 10
     },
     price: {
         color: '#0A8ED9',
-        marginVertical: 5
+        marginVertical: 10
     },
     miniFeat: {
         flexDirection: 'row',
