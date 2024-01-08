@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 const FilterCourse = ({ styles, setCourses, courses }) => {
     const handleFilterCourse = (filterCourse) => {
-        axios.get(`https://867f-2404-8000-1027-1608-4cf5-7e79-6bc4-14a1.ngrok-free.app/api/course/cari?search=${filterCourse}`)
+        axios.get(`https://d1ef-36-80-143-111.ngrok-free.app/api/course/cari?search=${filterCourse}`)
         .then((response) => {
             if (response.status === 200) {
                 setCourses(response.data)
@@ -14,7 +14,7 @@ const FilterCourse = ({ styles, setCourses, courses }) => {
     }
 
     const getAllCourse = () => {
-        axios.get(`https://867f-2404-8000-1027-1608-4cf5-7e79-6bc4-14a1.ngrok-free.app/api/course`)
+        axios.get(`https://d1ef-36-80-143-111.ngrok-free.app/api/course`)
         .then((response) => {
             if (response.status === 200) {
                 setCourses(response.data)

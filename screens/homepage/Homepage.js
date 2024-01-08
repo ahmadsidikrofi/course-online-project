@@ -10,13 +10,18 @@ import PopulerCard from "../../components/PopulerCard";
 import SearchInput from "../../components/SearchInput";
 import RecomendationCourse from "../../components/RecomendationCourse";
 import FilterCourse from "../../components/FilterCourse";
+import LotieLoader from "../../components/LotieLoader";
 
 const Homepage = ({navigation}) => {
     const [courses, setCourses] = useState([]);
     const [recommendationCourse, setRecommendationCourse] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        axios.get('https://867f-2404-8000-1027-1608-4cf5-7e79-6bc4-14a1.ngrok-free.app/api/course')
+        setTimeout(() => {
+            setIsLoading(true)
+        }, 5000)
+        axios.get('https://d1ef-36-80-143-111.ngrok-free.app/api/course')
         .then((response) => {
             if (response.status === 200) {
                 console.log(response.data)
@@ -25,7 +30,7 @@ const Homepage = ({navigation}) => {
         })
         .catch((err) => console.log(err))
 
-        axios.get('https://867f-2404-8000-1027-1608-4cf5-7e79-6bc4-14a1.ngrok-free.app/api/course/recommend')
+        axios.get('https://d1ef-36-80-143-111.ngrok-free.app/api/course/recommend')
         .then((response) => {
             if (response.status === 200) {
                 console.log(response.data)
@@ -54,7 +59,8 @@ const Homepage = ({navigation}) => {
                 <SearchInput styles={styles} setCourses={setCourses} />
 
                 {/* Filtering */}
-                <FilterCourse styles={styles} setCourses={setCourses} courses={courses}/>
+                {isLoading ? <FilterCourse styles={styles} setCourses={setCourses} courses={courses}/> : <LotieLoader />}
+                
 
                 {/* Populer */}
                 <View>
@@ -64,6 +70,7 @@ const Homepage = ({navigation}) => {
                     </View>
 
                     <View style={styles.populerCourseSection}>
+                        {isLoading ? 
                         <FlatList
                             horizontal
                             showsHorizontalScrollIndicator={false}
@@ -84,6 +91,9 @@ const Homepage = ({navigation}) => {
                             )}
                             keyExtractor={(item) => item.id}
                         />
+                        :
+                        <LotieLoader />
+                        }
                     </View>
                 </View>
                 
@@ -95,6 +105,7 @@ const Homepage = ({navigation}) => {
                             <Text style={styles.seeMore}>See more</Text>
                         </TouchableOpacity>
                     </View>
+                    {isLoading ? 
                     <ScrollView horizontal={false}>
                         {recommendationCourse.slice(0,4).map((recommend) => {
                             return (
@@ -115,6 +126,9 @@ const Homepage = ({navigation}) => {
                             )
                         })}
                     </ScrollView>
+                    :
+                    <LotieLoader />
+                    }
                 </View>
             </View>
         </ScrollView>

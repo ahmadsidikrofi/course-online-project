@@ -9,7 +9,7 @@ const SearchInput = ({ styles, setCourses}) => {
 
     const handleSearchCourse = (searchNamaCourse) => {
         if (searchNamaCourse) {
-            axios.get(`https://867f-2404-8000-1027-1608-4cf5-7e79-6bc4-14a1.ngrok-free.app/api/course/cari?search=${searchNamaCourse}`)
+            axios.get(`https://d1ef-36-80-143-111.ngrok-free.app/api/course/cari?search=${searchNamaCourse}`)
             .then((response) => {
                 if (response.status === 200) {
                     // console.log(response.data)
@@ -18,7 +18,7 @@ const SearchInput = ({ styles, setCourses}) => {
             })
             console.log(searchNamaCourse)
         }  else {
-            axios.get(`https://867f-2404-8000-1027-1608-4cf5-7e79-6bc4-14a1.ngrok-free.app/api/course`)
+            axios.get(`https://d1ef-36-80-143-111.ngrok-free.app/api/course`)
             .then((response) => {
                 if (response.status === 200) {
                     // console.log(response.data)

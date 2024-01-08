@@ -12,7 +12,7 @@ import CourseDb from "../data/CourseDb";
 const DetailPage = ( { navigation, route }) => {
     const { namaCourse, captionCourse, harga, img } = route.params
     return ( 
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false} style={{ backgroundColor: '#C4DFDF' }}>
             <View style={styles.container} >
                 <ImageBackground source={{ uri: img }} 
                     resizeMode="cover" 

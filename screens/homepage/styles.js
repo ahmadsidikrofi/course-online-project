@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         padding: 15,
-        width: 150,
+        width: '100%',
     },
 
     // Populer Course
